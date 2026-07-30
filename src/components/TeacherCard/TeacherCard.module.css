@@ -1,0 +1,279 @@
+.card {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent-tint);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 8px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: 44px;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.price {
+  color: var(--color-text);
+}
+
+.favoriteButton {
+  position: absolute;
+  right: 0;
+  top: -4px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.favoriteButton:hover {
+  color: var(--color-accent-dark);
+  transform: scale(1.1);
+}
+
+.favoriteActive {
+  color: var(--color-accent-dark);
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+  color: var(--color-text-secondary);
+}
+
+.metaLabel {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.readMoreButton {
+  align-self: flex-start;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.readMoreButton:hover {
+  color: var(--color-accent-dark);
+}
+
+.expanded {
+  margin-bottom: 16px;
+  animation: expandIn 0.25s ease;
+}
+
+.experience {
+  margin-bottom: 20px;
+  color: var(--color-text-secondary);
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.reviewAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-accent-tint);
+  color: var(--color-accent-dark);
+  font-weight: 700;
+}
+
+.reviewerName {
+  font-weight: 600;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.reviewComment {
+  color: var(--color-text-secondary);
+}
+
+.levelRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.levelBadge {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-alt);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color var(--transition-fast);
+}
+
+.card:hover .levelBadge {
+  background-color: var(--color-accent-tint);
+}
+
+.bookButton {
+  align-self: flex-start;
+  padding: 16px 40px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.bookButton:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+@keyframes expandIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .statsRow {
+    margin-right: 0;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .favoriteButton {
+    position: static;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .topRow {
+    align-items: flex-start;
+  }
+
+  .statsRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .favoriteButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .bookButton {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,166 @@
+.page {
+  overflow-x: hidden;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding-block: 64px 96px;
+}
+
+.content {
+  max-width: 540px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: var(--color-text);
+}
+
+.title span {
+  color: var(--color-accent-dark);
+}
+
+.text {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 56px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.imageCircle {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(
+      circle at 30% 30%,
+      var(--color-accent-tint),
+      transparent 60%
+    ),
+    linear-gradient(160deg, var(--color-accent-tint), var(--color-bg-alt));
+  border: 1px solid var(--color-border);
+}
+
+.benefits {
+  padding-bottom: 96px;
+}
+
+.benefitsList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.benefitCard {
+  padding: 32px 24px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.benefitCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.benefitValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 8px;
+}
+
+.benefitLabel {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 44px;
+  }
+
+  .benefitsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-block: 48px 64px;
+    text-align: center;
+  }
+
+  .content {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .imageWrapper {
+    order: -1;
+  }
+
+  .imageCircle {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .benefitsList {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .benefitCard {
+    padding: 20px 16px;
+  }
+
+  .benefitValue {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,136 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
+
+.teacherRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.teacherLabel {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.teacherName {
+  font-weight: 700;
+}
+
+.reasonTitle {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.reasonList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.reasonLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-inline: -12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.reasonLabel:hover {
+  background-color: var(--color-accent-tint);
+}
+
+.reasonLabelActive {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.reasonRadio {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent-dark);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input:hover {
+  border-color: var(--color-text-secondary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent-dark);
+  box-shadow: 0 0 0 3px var(--color-accent-tint);
+}
+
+.error {
+  font-size: 13px;
+  color: var(--color-danger);
+}
+
+.submitButton {
+  margin-top: 8px;
+  padding: 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
