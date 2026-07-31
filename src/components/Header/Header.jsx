@@ -10,6 +10,18 @@ const NAV_LINKS = [
   { to: "/teachers", label: "Teachers" },
 ];
 
+const LoginIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+    <path
+      d="M8 17.5H4.5A1.5 1.5 0 013 16V4a1.5 1.5 0 011.5-1.5H8M13 14l4-4-4-4M17 10H7.5"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const Header = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const [authModal, setAuthModal] = useState({ isOpen: false, view: "login" });
@@ -32,13 +44,17 @@ const Header = () => {
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
         <NavLink to="/" className={styles.logo}>
+          <span className={styles.logoDot} aria-hidden="true" />
           Learn<span className={styles.logoAccent}>Lingo</span>
         </NavLink>
 
         <nav className={styles.nav}>
           <ul className={styles.navList}>
-            {NAV_LINKS.map(({ to, label }) => (
-              <li key={to}>
+            {NAV_LINKS.map(({ to, label }, index) => (
+              <li
+                key={to}
+                className={index > 0 ? styles.navListItemDivided : undefined}
+              >
                 <NavLink
                   to={to}
                   end={to === "/"}
@@ -51,7 +67,7 @@ const Header = () => {
               </li>
             ))}
             {isAuthenticated && (
-              <li>
+              <li className={styles.navListItemDivided}>
                 <NavLink
                   to="/favorites"
                   className={({ isActive }) =>
@@ -122,7 +138,8 @@ const Header = () => {
                   className={styles.loginButton}
                   onClick={() => openAuthModal("login")}
                 >
-                  Log In
+                  <LoginIcon />
+                  Log in
                 </button>
                 <button
                   type="button"

@@ -14,10 +14,26 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 24px;
   font-weight: 700;
   color: var(--color-text);
   white-space: nowrap;
+}
+
+.logoDot {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg,
+    #ffd54f 0deg 180deg,
+    #4a90d9 180deg 360deg
+  );
+  flex-shrink: 0;
 }
 
 .logoAccent {
@@ -32,6 +48,22 @@
   display: flex;
   align-items: center;
   gap: 32px;
+}
+
+.navListItemDivided {
+  position: relative;
+  padding-left: 20px;
+}
+
+.navListItemDivided::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-border);
 }
 
 .navLink {
@@ -67,12 +99,14 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 }
 
 .loginButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 600;
-  padding: 12px 8px;
   transition: color var(--transition-fast);
 }
 
@@ -81,16 +115,17 @@
 }
 
 .registerButton {
-  padding: 12px 24px;
+  padding: 12px 28px;
   border-radius: var(--radius-pill);
-  background-color: var(--color-accent);
-  color: var(--color-primary);
+  background-color: var(--color-text);
+  color: var(--color-bg);
   font-weight: 600;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .registerButton:hover {
   background-color: var(--color-accent-dark);
+  color: var(--color-primary);
   transform: translateY(-1px);
 }
 

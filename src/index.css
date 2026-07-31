@@ -10,10 +10,11 @@
   --color-border: #e6e6e6;
   --color-success: #37a54a;
   --color-danger: #eb4d4b;
+  --color-teal: #12a594;
 
   --radius-sm: 8px;
   --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-lg: 30px;
   --radius-pill: 999px;
 
   --shadow-sm: 0 2px 10px rgba(25, 25, 25, 0.06);

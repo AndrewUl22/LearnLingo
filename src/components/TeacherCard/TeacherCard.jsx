@@ -31,10 +31,13 @@ const TeacherCard = ({ teacher }) => {
 
           <div className={styles.statsRow}>
             <span className={styles.stat}>
+              <ClockIcon />
+              Lessons online
+            </span>
+            <span className={styles.stat}>
               <StarIcon />
               Rating: {teacher.rating}
             </span>
-            <span className={styles.stat}>Lessons done: {teacher.lessons_done}</span>
             <span className={styles.stat}>
               Price / 1 hour:{" "}
               <strong className={styles.price}>{teacher.price_per_hour}$</strong>
@@ -57,7 +60,10 @@ const TeacherCard = ({ teacher }) => {
 
         <ul className={styles.metaList}>
           <li>
-            <span className={styles.metaLabel}>Speaks:</span> {teacher.languages.join(", ")}
+            <span className={styles.metaLabel}>Speaks:</span>{" "}
+            <span className={styles.languagesValue}>
+              {teacher.languages.join(", ")}
+            </span>
           </li>
           <li>
             <span className={styles.metaLabel}>Lesson Info:</span> {teacher.lesson_info}
@@ -103,20 +109,18 @@ const TeacherCard = ({ teacher }) => {
         <div className={styles.levelRow}>
           {teacher.levels.map((level) => (
             <span key={level} className={styles.levelBadge}>
-              {level}
+              #{level}
             </span>
           ))}
         </div>
 
-        {isExpanded && (
-          <button
-            type="button"
-            className={styles.bookButton}
-            onClick={() => setIsBookingOpen(true)}
-          >
-            Book trial lesson
-          </button>
-        )}
+        <button
+          type="button"
+          className={styles.bookButton}
+          onClick={() => setIsBookingOpen(true)}
+        >
+          Book trial lesson
+        </button>
       </div>
 
       <BookingModal
@@ -127,6 +131,19 @@ const TeacherCard = ({ teacher }) => {
     </li>
   );
 };
+
+const ClockIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <circle cx="8" cy="8" r="6.3" stroke="currentColor" strokeWidth="1.3" />
+    <path
+      d="M8 4.8V8l2.2 1.3"
+      stroke="currentColor"
+      strokeWidth="1.3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const StarIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

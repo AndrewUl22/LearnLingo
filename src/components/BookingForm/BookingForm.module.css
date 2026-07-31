@@ -17,16 +17,13 @@
 .teacherRow {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+  gap: 12px;
   margin-bottom: 24px;
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg-alt);
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -115,6 +112,7 @@
 }
 
 .submitButton {
+  width: 100%;
   margin-top: 8px;
   padding: 16px;
   border-radius: var(--radius-pill);

@@ -64,7 +64,7 @@
 }
 
 .price {
-  color: var(--color-text);
+  color: var(--color-teal);
 }
 
 .favoriteButton {
@@ -102,6 +102,11 @@
 .metaLabel {
   font-weight: 600;
   color: var(--color-text);
+}
+
+.languagesValue {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .readMoreButton {
