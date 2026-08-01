@@ -230,7 +230,7 @@
   font-weight: 600;
 }
 
-.card:hover .levelBadge {
+.levelBadge:hover {
   border-color: var(--color-accent-dark);
   background-color: var(--color-accent-tint);
 }

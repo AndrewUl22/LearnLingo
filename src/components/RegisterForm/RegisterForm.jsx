@@ -20,10 +20,11 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
       toast.success("Account created successfully!");
       onSuccess();
     } catch (error) {
+      console.error("Registration error:", error.code, error.message);
       if (error.code === "auth/email-already-in-use") {
         toast.error("This email is already registered");
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error(`Error: ${error.code || error.message}`);
       }
     }
   };

@@ -34,6 +34,7 @@ const HomePage = () => {
               src="/images/hero-character.png"
               alt=""
             />
+            <div className={styles.podium} aria-hidden="true" />
           </div>
         </div>
       </section>
