@@ -36,7 +36,7 @@ const BookingModal = ({ isOpen, onClose, teacher }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose}>
+    <Modal isOpen={isOpen} onClose={handleClose} maxWidth="600px">
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Book trial lesson</h2>
         <p className={styles.subtitle}>

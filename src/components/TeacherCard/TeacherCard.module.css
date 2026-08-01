@@ -1,8 +1,8 @@
 .card {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   padding: 32px;
-  border-radius: var(--radius-lg);
+  border-radius: 24px;
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   transition: box-shadow var(--transition-fast), transform var(--transition-fast);
@@ -13,13 +13,30 @@
   transform: translateY(-2px);
 }
 
-.avatar {
+.avatarWrapper {
+  position: relative;
   flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+}
+
+.avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-accent-tint);
+}
+
+.onlineDot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  border: 2px solid var(--color-bg);
 }
 
 .content {
@@ -61,6 +78,12 @@
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--color-border);
 }
 
 .price {
@@ -191,13 +214,24 @@
 .levelBadge {
   padding: 8px 16px;
   border-radius: var(--radius-pill);
-  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
   font-size: 14px;
   font-weight: 500;
-  transition: background-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.levelBadgePrimary {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .card:hover .levelBadge {
+  border-color: var(--color-accent-dark);
   background-color: var(--color-accent-tint);
 }
 
@@ -250,6 +284,11 @@
     flex-direction: column;
     padding: 20px;
     gap: 16px;
+  }
+
+  .avatarWrapper {
+    width: 80px;
+    height: 80px;
   }
 
   .avatar {

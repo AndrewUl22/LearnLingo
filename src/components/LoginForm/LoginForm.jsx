@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import { loginSchema } from "../../utils/validationSchemas";
+import PasswordInput from "../PasswordInput/PasswordInput";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = ({ onSuccess, onSwitchToRegister }) => {
@@ -27,7 +28,8 @@ const LoginForm = ({ onSuccess, onSwitchToRegister }) => {
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Log In</h2>
       <p className={styles.subtitle}>
-        Welcome back! Please enter your credentials to access your account.
+        Welcome back! Please enter your credentials to access your account
+        and continue your search for a teacher.
       </p>
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -44,12 +46,7 @@ const LoginForm = ({ onSuccess, onSwitchToRegister }) => {
         </div>
 
         <div className={styles.field}>
-          <input
-            className={styles.input}
-            type="password"
-            placeholder="Password"
-            {...register("password")}
-          />
+          <PasswordInput placeholder="Password" {...register("password")} />
           {errors.password && (
             <p className={styles.error}>{errors.password.message}</p>
           )}

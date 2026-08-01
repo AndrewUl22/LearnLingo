@@ -23,7 +23,14 @@ const TeacherCard = ({ teacher }) => {
 
   return (
     <li className={styles.card}>
-      <img className={styles.avatar} src={teacher.avatar_url} alt={`${teacher.name} ${teacher.surname}`} />
+      <div className={styles.avatarWrapper}>
+        <img
+          className={styles.avatar}
+          src={teacher.avatar_url}
+          alt={`${teacher.name} ${teacher.surname}`}
+        />
+        <span className={styles.onlineDot} aria-hidden="true" />
+      </div>
 
       <div className={styles.content}>
         <div className={styles.topRow}>
@@ -31,13 +38,17 @@ const TeacherCard = ({ teacher }) => {
 
           <div className={styles.statsRow}>
             <span className={styles.stat}>
-              <ClockIcon />
+              <BookIcon />
               Lessons online
             </span>
+            <span className={styles.divider} aria-hidden="true" />
+            <span className={styles.stat}>Lessons done: {teacher.lessons_done}</span>
+            <span className={styles.divider} aria-hidden="true" />
             <span className={styles.stat}>
               <StarIcon />
               Rating: {teacher.rating}
             </span>
+            <span className={styles.divider} aria-hidden="true" />
             <span className={styles.stat}>
               Price / 1 hour:{" "}
               <strong className={styles.price}>{teacher.price_per_hour}$</strong>
@@ -107,8 +118,11 @@ const TeacherCard = ({ teacher }) => {
         </button>
 
         <div className={styles.levelRow}>
-          {teacher.levels.map((level) => (
-            <span key={level} className={styles.levelBadge}>
+          {teacher.levels.map((level, index) => (
+            <span
+              key={level}
+              className={index === 0 ? styles.levelBadgePrimary : styles.levelBadge}
+            >
               #{level}
             </span>
           ))}
@@ -132,14 +146,18 @@ const TeacherCard = ({ teacher }) => {
   );
 };
 
-const ClockIcon = () => (
+const BookIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-    <circle cx="8" cy="8" r="6.3" stroke="currentColor" strokeWidth="1.3" />
     <path
-      d="M8 4.8V8l2.2 1.3"
+      d="M2 3.2c0-.4.3-.7.7-.7H7a1 1 0 0 1 1 1v9.3a.5.5 0 0 1-.8.4A5.4 5.4 0 0 0 2.7 12H2.7A.7.7 0 0 1 2 11.3V3.2z"
       stroke="currentColor"
-      strokeWidth="1.3"
-      strokeLinecap="round"
+      strokeWidth="1.2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M14 3.2c0-.4-.3-.7-.7-.7H9a1 1 0 0 0-1 1v9.3c0 .35.37.58.68.42A5.4 5.4 0 0 1 13.3 12h.02c.38 0 .68-.3.68-.68V3.2z"
+      stroke="currentColor"
+      strokeWidth="1.2"
       strokeLinejoin="round"
     />
   </svg>

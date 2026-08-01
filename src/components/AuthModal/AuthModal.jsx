@@ -12,7 +12,7 @@ const AuthModal = ({ isOpen, initialView = "login", onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose}>
+    <Modal isOpen={isOpen} onClose={handleClose} maxWidth="566px">
       {view === "login" ? (
         <LoginForm
           onSuccess={handleClose}

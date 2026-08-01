@@ -12,6 +12,9 @@
 
 .content {
   max-width: 540px;
+  padding: 48px;
+  border-radius: var(--radius-lg);
+  background-color: #f8f8f8;
 }
 
 .title {

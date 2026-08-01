@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import { registerSchema } from "../../utils/validationSchemas";
+import PasswordInput from "../PasswordInput/PasswordInput";
 import styles from "../LoginForm/LoginForm.module.css";
 
 const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
@@ -31,8 +32,9 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Registration</h2>
       <p className={styles.subtitle}>
-        Thank you for your interest in our platform. In order to register, we
-        need some information.
+        Thank you for your interest in our platform! In order to register, we
+        need some information. Please provide us with the following
+        information.
       </p>
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -59,12 +61,7 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
         </div>
 
         <div className={styles.field}>
-          <input
-            className={styles.input}
-            type="password"
-            placeholder="Password"
-            {...register("password")}
-          />
+          <PasswordInput placeholder="Password" {...register("password")} />
           {errors.password && (
             <p className={styles.error}>{errors.password.message}</p>
           )}

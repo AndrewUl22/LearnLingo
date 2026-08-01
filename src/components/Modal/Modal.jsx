@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import styles from "./Modal.module.css";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, maxWidth }) => {
   useEffect(() => {
     if (!isOpen) return;
 
@@ -27,7 +27,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return createPortal(
     <div className={styles.backdrop} onMouseDown={handleBackdropClick}>
-      <div className={styles.modal}>
+      <div className={styles.modal} style={maxWidth ? { maxWidth } : undefined}>
         <button
           type="button"
           className={styles.closeButton}
