@@ -15,6 +15,20 @@ specification and Figma design. The app has three pages:
 - **Favorites** — a private page (visible only to authenticated users)
   listing the teachers the user has bookmarked.
 
+## Screenshots
+
+**Home page**
+
+![Home page](./screenshots/home.png)
+
+**Teachers page**
+
+![Teachers page](./screenshots/teachers.png)
+
+**Book trial lesson modal**
+
+![Book trial lesson modal](./screenshots/book-trial-modal.png)
+
 ## Features
 
 - Firebase Authentication: registration, login, logout, persisted session
