@@ -177,6 +177,10 @@
   display: contents;
 }
 
+.backdrop {
+  display: none;
+}
+
 .mobileNavList {
   display: none;
 }
@@ -203,6 +207,7 @@
   .mobilePanel {
     display: flex;
     position: fixed;
+    z-index: 95;
     top: var(--header-height);
     left: 0;
     right: 0;
@@ -221,6 +226,17 @@
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background-color: rgba(16, 24, 40, 0.35);
   }
 
   .mobileNavList {

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import AuthModal from "../AuthModal/AuthModal";
@@ -24,15 +24,23 @@ const LoginIcon = () => (
 
 const Header = () => {
   const { user, isAuthenticated, logout } = useAuth();
+  const location = useLocation();
   const [authModal, setAuthModal] = useState({ isOpen: false, view: "login" });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const openAuthModal = (view) => {
     setAuthModal({ isOpen: true, view });
     setIsMenuOpen(false);
   };
 
-  const closeAuthModal = () => setAuthModal((prev) => ({ ...prev, isOpen: false }));
+  const closeAuthModal = () => {
+    setAuthModal((prev) => ({ ...prev, isOpen: false }));
+    setIsMenuOpen(false);
+  };
 
   const handleLogout = async () => {
     await logout();
@@ -91,6 +99,14 @@ const Header = () => {
           <span />
           <span />
         </button>
+
+        {isMenuOpen && (
+          <div
+            className={styles.backdrop}
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
 
         <div className={`${styles.mobilePanel} ${isMenuOpen ? styles.mobilePanelOpen : ""}`}>
           <ul className={styles.mobileNavList}>
