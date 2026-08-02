@@ -33,28 +33,8 @@ const TeacherCard = ({ teacher }) => {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.topRow}>
+        <div className={styles.headerLine}>
           <span className={styles.eyebrow}>Languages</span>
-
-          <div className={styles.statsRow}>
-            <span className={styles.stat}>
-              <BookIcon />
-              Lessons online
-            </span>
-            <span className={styles.divider} aria-hidden="true" />
-            <span className={styles.stat}>Lessons done: {teacher.lessons_done}</span>
-            <span className={styles.divider} aria-hidden="true" />
-            <span className={styles.stat}>
-              <StarIcon />
-              Rating: {teacher.rating}
-            </span>
-            <span className={styles.divider} aria-hidden="true" />
-            <span className={styles.stat}>
-              Price / 1 hour:{" "}
-              <strong className={styles.price}>{teacher.price_per_hour}$</strong>
-            </span>
-          </div>
-
           <button
             type="button"
             className={`${styles.favoriteButton} ${favorite ? styles.favoriteActive : ""}`}
@@ -63,6 +43,25 @@ const TeacherCard = ({ teacher }) => {
           >
             <HeartIcon filled={favorite} />
           </button>
+        </div>
+
+        <div className={styles.statsRow}>
+          <span className={styles.stat}>
+            <BookIcon />
+            Lessons online
+          </span>
+          <span className={styles.divider} aria-hidden="true" />
+          <span className={styles.stat}>Lessons done: {teacher.lessons_done}</span>
+            <span className={styles.divider} aria-hidden="true" />
+            <span className={styles.stat}>
+              <StarIcon />
+              Rating: {teacher.rating}
+            </span>
+            <span className={styles.divider} aria-hidden="true" />
+          <span className={styles.stat}>
+            Price / 1 hour:{" "}
+            <strong className={styles.price}>{teacher.price_per_hour}$</strong>
+          </span>
         </div>
 
         <h3 className={styles.name}>
