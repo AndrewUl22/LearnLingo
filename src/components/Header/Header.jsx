@@ -142,7 +142,14 @@ const Header = () => {
           <div className={styles.actions}>
             {isAuthenticated ? (
               <div className={styles.userBlock}>
-                <span className={styles.userName}>{user.displayName || user.email}</span>
+                <span className={styles.userName}>
+                  <span className={styles.userAvatar} aria-hidden="true">
+                    {(user.displayName || user.email).charAt(0).toUpperCase()}
+                  </span>
+                  <span className={styles.userNameText}>
+                    {user.displayName || user.email}
+                  </span>
+                </span>
                 <button type="button" className={styles.logoutButton} onClick={handleLogout}>
                   Log Out
                 </button>
